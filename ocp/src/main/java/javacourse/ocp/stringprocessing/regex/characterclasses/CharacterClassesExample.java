@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 
 /**
- * Example of using Character Classes
+ * Example of using a bad order in a range and how works the caret symbol.
+ * 
  * @author Jose Blesa
  *
  */
@@ -13,8 +14,9 @@ public class CharacterClassesExample {
 	
 	public static void main(String[] args) {
 		
-		String regex = "[c-a]123";
-		String targetString = "0a12310ab123sw";
+		//String regex = "[c-a]123"; // The range's order has to be ascending!!!
+		String regex = "[^a-c]123"; // the caret symbol means: 'I don't want the pattern inside the brackets'.
+		String targetString = "0d12310ab123sw";
 		
 		Pattern pattern = Pattern.compile(regex);//The regex expression...
 		Matcher m = pattern.matcher(targetString);//The text where we are going to search...
