@@ -15,8 +15,9 @@ public class CharacterClassesExample {
 	public static void main(String[] args) {
 		
 		//String regex = "[c-a]123"; // The range's order has to be ascending!!!
-		String regex = "[^a-c]123"; // the caret symbol means: 'I don't want the pattern inside the brackets'.
-		String targetString = "0d12310ab123sw";
+		//String regex = "[^a-c]123"; // the caret symbol means: 'I don't want the pattern inside the brackets'.
+		String regex = "ab[a-z]*?[a-c]"; // the caret symbol means: 'I don't want the pattern inside the brackets'.
+		String targetString = "abcdef";
 		
 		Pattern pattern = Pattern.compile(regex);//The regex expression...
 		Matcher m = pattern.matcher(targetString);//The text where we are going to search...
