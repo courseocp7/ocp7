@@ -15,7 +15,7 @@ public class Sleep01 implements Runnable {
 	public void run() {
 		
 		for(int x = 0; x < 10; x++){
-			System.out.println(Thread.currentThread().getName() + "-" + x);
+			System.out.printf("%s-%d%n",Thread.currentThread().getName(), x);
 			
 			try {
 				Thread.sleep(1000);

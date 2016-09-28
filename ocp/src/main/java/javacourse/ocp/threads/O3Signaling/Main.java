@@ -4,7 +4,7 @@ public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		EventStorage storage = new EventStorage(10);
+		EventStorage storage = new EventStorageImpl(10);
 		
 		Producer producer = new Producer(storage);
 		Consumer consumer = new Consumer(storage);

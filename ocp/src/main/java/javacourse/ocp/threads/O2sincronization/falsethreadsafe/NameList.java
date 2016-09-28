@@ -1,4 +1,4 @@
-package javacourse.ocp.threads.O2sincronization.threadsafe;
+package javacourse.ocp.threads.O2sincronization.falsethreadsafe;
 
 import java.util.*;
 

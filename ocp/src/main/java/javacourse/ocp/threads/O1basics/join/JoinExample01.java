@@ -5,9 +5,8 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /**
- * 
- * In this class something goes wrong when we try to slice the sum of all the
- * numbers included in a list between several threads.
+ *
+ * This class demonstrate the use of Thread.join() method
  * 
  * @author Jose Blesa
  *
@@ -27,7 +26,7 @@ public class JoinExample01 implements Runnable {
 
 		for (int number : numbers) {
 			subtotal += number;
-			System.out.printf("generating subtotal from %s : %d \n", Thread.currentThread().getName(), subtotal);			
+			System.out.printf("generating subtotal from %s : %d%n", Thread.currentThread().getName(), subtotal);			
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException ie) {
@@ -62,7 +61,7 @@ public class JoinExample01 implements Runnable {
 
 		for (int x = 0; x < count; x++) {
 			int number = random.nextInt(maxNumber);
-			System.out.printf("number generated : %d \n" , number);
+			System.out.printf("number generated : %d%n" , number);
 			numbers.add(number);
 			total += number;
 		}

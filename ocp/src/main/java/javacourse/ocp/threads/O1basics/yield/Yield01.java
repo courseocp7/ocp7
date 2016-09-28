@@ -30,21 +30,14 @@ public class Yield01 implements Runnable {
 
 	public void run() {
 		
-		System.out.println("generating subtotal..." + Thread.currentThread().getName());
+		System.out.printf("generating subtotal...%s%n", Thread.currentThread().getName());
 
 		for (int number : numbersToAdd) {
-			System.out.println("It's my turn :" + Thread.currentThread().getName() + "-" + Thread.currentThread().getPriority());
+			//System.out.printf("It's my turn : %s-%s%n", Thread.currentThread().getName(), Thread.currentThread().getPriority());
 			subtotal += number;
-			Thread.yield();
-			//comment the previous line and uncomment this block to compare the behavior.
-			/*
-			try { 
-				Thread.sleep(1);
-			} catch (InterruptedException ie) {
-				ie.printStackTrace();
-			}
-			*/
+			//Thread.yield();
 		}
+		System.out.printf("%s done!%n", Thread.currentThread().getName());
 	}
 	
 	private static long getTotal(){
@@ -67,7 +60,7 @@ public class Yield01 implements Runnable {
 
 	public static void main(String[] args) {
 
-		List<Integer> numbers =  Yield01.getListWithRandomNumbers(20, 10);
+		List<Integer> numbers =  Yield01.getListWithRandomNumbers(1000, 10);
 	
 		System.out.println("Total = " + Yield01.getTotal());
 		
@@ -81,14 +74,14 @@ public class Yield01 implements Runnable {
 		Yield01 runnable08 = new Yield01(numbers.subList(700, 800));		
 		
 		
-		Thread t01 = new Thread(runnable01, "runnable01");
-		Thread t02 = new Thread(runnable02, "runnable02");
-		Thread t03 = new Thread(runnable03, "runnable03");
-		Thread t04 = new Thread(runnable04, "runnable04");		
-		Thread t05 = new Thread(runnable05, "runnable05");
-		Thread t06 = new Thread(runnable06, "runnable06");
-		Thread t07 = new Thread(runnable07, "runnable07");
-		Thread t08 = new Thread(runnable08, "runnable08");			
+		Thread t01 = new Thread(runnable01, "runnable01-8");
+		Thread t02 = new Thread(runnable02, "runnable02-8");
+		Thread t03 = new Thread(runnable03, "runnable03-8");
+		Thread t04 = new Thread(runnable04, "runnable04-8");		
+		Thread t05 = new Thread(runnable05, "runnable05-8");
+		Thread t06 = new Thread(runnable06, "runnable06-8");
+		Thread t07 = new Thread(runnable07, "runnable07-2");
+		Thread t08 = new Thread(runnable08, "runnable08-2");			
 		
 		
 		long start = System.currentTimeMillis();
@@ -118,14 +111,14 @@ public class Yield01 implements Runnable {
 		
 		long end = System.currentTimeMillis();
 		
-		System.out.println("subtotal01 = " + runnable01.getSubTotal());
-		System.out.println("subtotal02 = " + runnable02.getSubTotal());
-		System.out.println("subtotal03 = " + runnable03.getSubTotal());
-		System.out.println("subtotal04 = " + runnable04.getSubTotal());		
-		System.out.println("subtotal05 = " + runnable05.getSubTotal());
-		System.out.println("subtotal06 = " + runnable06.getSubTotal());
-		System.out.println("subtotal07 = " + runnable07.getSubTotal());
-		System.out.println("subtotal08 = " + runnable08.getSubTotal());		
+		System.out.printf("subtotal01 = %d%n",runnable01.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable02.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable03.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable04.getSubTotal());		
+		System.out.printf("subtotal01 = %d%n",runnable05.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable06.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable07.getSubTotal());
+		System.out.printf("subtotal01 = %d%n",runnable08.getSubTotal());		
 		
 		System.out.println((end - start) / 1000);
 
