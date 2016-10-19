@@ -8,10 +8,18 @@ public class MethodInnerExample {
 		final int num = 23;
 
 		class Inner { // method inner class
+			
+			/*static*/ int num = 23;
+			
 			public void print() {
 				System.out.println("Inside method inner class " + MethodInnerExample.this.num); //  we can access private from outer...
 				System.out.println("Inside method inner class " + num); //  we can't access non-final enclosing var...
 			}
+			
+			/*static*/ void doOtherThings(){
+				System.out.println("Inside method inner class " + MethodInnerExample.this.num); //  we can access private from outer...
+			}
+			
 		} // end of inner class
 
 		// Accessing the inner class
