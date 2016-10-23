@@ -62,7 +62,7 @@ class Singleton02 {
 	public static Singleton02 getInstance() {
 
 		if (instance == null) { 
-			synchronized (Singleton.class) {
+			synchronized (Singleton02.class) {
 				if (instance == null) { // double checking...
 					instance = new Singleton02();
 				}
@@ -74,8 +74,8 @@ class Singleton02 {
 
 	public static void main(String[] args) {
 
-		Singleton s = Singleton.getInstance();
-		Singleton s2 = Singleton.getInstance();
+		Singleton02 s = Singleton02.getInstance();
+		Singleton02 s2 = Singleton02.getInstance();
 
 		System.out.println(s == s2);
 
